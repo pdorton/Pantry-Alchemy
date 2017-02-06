@@ -31,14 +31,6 @@
         app:backgroundTint="@android:color/holo_green_dark"
         app:elevation="10dp" />
 
-    <Button
-        android:text="Push Me"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        app:layout_anchorGravity="center_vertical|center_horizontal"
-        android:layout_gravity="center_vertical|center_horizontal" />
-
     <include layout="@layout/content_hello_world" />
 
 </android.support.design.widget.CoordinatorLayout>
