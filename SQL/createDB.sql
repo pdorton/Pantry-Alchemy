@@ -1,0 +1,80 @@
+DROP DATABASE IF EXISTS pantry_database;
+
+
+CREATE DATABASE pantry_database;
+USE pantry_database;
+
+
+CREATE TABLE user(
+	id		INT		NOT NULL AUTO_INCREMENT,
+	first_name	VARCHAR(64) NOT NULL,
+	last_name	VARCHAR(64)	NOT NULL,
+	email 		VARCHAR(255),
+	CONSTRAINT PK_USER	PRIMARY KEY(id)	
+);
+
+CREATE TABLE recipe(
+	id		INT		NOT NULL AUTO_INCREMENT,
+	name 		VARCHAR(64)		NOT NULL,
+	directions	VARCHAR(10000) NOT NULL,
+	photo		BLOB, 
+	times_favorited	int NOT NULL DEFAULT 0,
+	CONSTRAINT PK_RECIPE	PRIMARY KEY(id)	
+);
+
+CREATE TABLE favorite_recipes(
+	uid		INT		NOT NULL,
+	rid 	INT 	NOT NULL,
+	CONSTRAINT PK_FAVORITE_RECIPES	PRIMARY KEY(uid, rid),	
+	FOREIGN KEY(uid) REFERENCES user(id),
+	FOREIGN KEY(rid) REFERENCES recipe(id)
+);
+
+CREATE TABLE pantry(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(64) NOT NULL,
+	CONSTRAINT PK_PANTRY PRIMARY KEY(id)
+);
+
+CREATE TABLE measurments(
+	id	INT NOT NULL AUTO_INCREMENT,
+	unit VARCHAR(10) NOT NULL,
+	unit_name	VARCHAR(64) NOT NULL,
+	CONSTRAINT PK_MEASUREMENTS PRIMARY KEY(id)
+);
+
+CREATE TABLE ingredients(
+	id	INT NOT NULL AUTO_INCREMENT,
+	Name	VARCHAR(64) NOT NULL,
+	CONSTRAINT PK_INGREDIENTS PRIMARY KEY(id)
+);
+
+CREATE TABLE pantry_user(
+	uid	INT NOT NULL,
+	pid	INT NOT NULL,
+	CONSTRAINT PK_INGREDIENTS PRIMARY KEY(uid, pid),
+	FOREIGN KEY(uid) REFERENCES user(id),
+	FOREIGN KEY(pid) REFERENCES pantry(id)
+);
+
+CREATE TABLE pantry_ingredient(
+	ing_id	INT NOT NULL,
+	pid	INT NOT NULL,
+	measure_id	INT NOT NULL,
+	quantity INT NOT NULL,
+	CONSTRAINT PK_INGREDIENTS PRIMARY KEY(ing_id, pid),
+	FOREIGN KEY(ing_id) REFERENCES ingredients(id),
+	FOREIGN KEY(measure_id) REFERENCES measurments(id),
+	FOREIGN KEY(pid) REFERENCES pantry(id)
+);
+
+CREATE TABLE recipe_ingredient(
+	ing_id	INT NOT NULL,
+	rid	INT NOT NULL,
+	measure_id	INT NOT NULL,
+	quantity INT NOT NULL,
+	CONSTRAINT PK_INGREDIENTS PRIMARY KEY(ing_id, rid),
+	FOREIGN KEY(ing_id) REFERENCES ingredients(id),
+	FOREIGN KEY(measure_id) REFERENCES measurments(id),
+	FOREIGN KEY(rid) REFERENCES recipe(id)
+);
