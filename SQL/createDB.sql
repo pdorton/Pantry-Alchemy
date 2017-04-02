@@ -64,7 +64,7 @@ CREATE TABLE pantry_ingredient(
 	quantity INT NOT NULL,
 	CONSTRAINT PK_INGREDIENTS PRIMARY KEY(ing_id, pid),
 	FOREIGN KEY(ing_id) REFERENCES ingredients(id),
-	FOREIGN KEY(measure_id) REFERENCES measurments(id),
+	FOREIGN KEY(measure_id) REFERENCES measurements(id),
 	FOREIGN KEY(pid) REFERENCES pantry(id)
 );
 
@@ -75,6 +75,6 @@ CREATE TABLE recipe_ingredient(
 	quantity INT NOT NULL,
 	CONSTRAINT PK_INGREDIENTS PRIMARY KEY(ing_id, rid),
 	FOREIGN KEY(ing_id) REFERENCES ingredients(id),
-	FOREIGN KEY(measure_id) REFERENCES measurments(id),
+	FOREIGN KEY(measure_id) REFERENCES measurements(id),
 	FOREIGN KEY(rid) REFERENCES recipe(id)
 );
