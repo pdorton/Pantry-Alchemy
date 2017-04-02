@@ -1,4 +1,4 @@
-package thepoopgroup.pantryalchemy;
+package com.thealchemists.pantryalchemy;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("thepoopgroup.pantryalchemy", appContext.getPackageName());
+        assertEquals("com.thealchemists.pantryalchemy", appContext.getPackageName());
     }
 }
