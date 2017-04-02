@@ -1,4 +1,4 @@
-package thepoopgroup.pantryalchemy;
+package com.thealchemists.pantryalchemy;
 
 import org.junit.Test;
 
