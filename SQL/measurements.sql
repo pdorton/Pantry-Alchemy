@@ -2,12 +2,11 @@ USE pantry_database;
 
 
 
-
 INSERT VALUES into pantry_database.measurements(unit, unit_name)
 VALUES("tsp.","Teaspoon");
 
 INSERT VALUES into pantry_database.measurements(unit, unit_name)
-VALUES("tbsp.","Tablespoon");
+VALUES("Tbsp.","Tablespoon");
 
 INSERT VALUES into pantry_database.measurements(unit, unit_name)
 VALUES("fl. oz.","Fluid Ounce");
@@ -24,6 +23,11 @@ VALUES("qt.","Quart");
 INSERT VALUES into pantry_database.measurements(unit, unit_name)
 VALUES("gal.","Gallon");
 
+INSERT VALUES into pantry_database.measurements(unit, unit_name)
+VALUES("g.","Grams");
+
+INSERT VALUES into pantry_database.measurements(unit, unit_name)
+VALUES("lb.","Pound");
 
 
 
