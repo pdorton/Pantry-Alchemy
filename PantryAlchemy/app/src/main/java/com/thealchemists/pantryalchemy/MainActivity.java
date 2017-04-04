@@ -1,5 +1,6 @@
 package com.thealchemists.pantryalchemy;
 
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,7 +20,11 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
 public class MainActivity extends AppCompatActivity {
+
+    MaterialSearchView searchView;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -43,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Pantry Alchemy");
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -54,13 +63,20 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+        searchView = (MaterialSearchView) findViewById(R.id.search_view);
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+
         return true;
     }
 
