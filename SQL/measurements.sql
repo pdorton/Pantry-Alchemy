@@ -30,7 +30,8 @@ VALUES("lb.","Pound");
 INSERT INTO pantry_database.measurements(unit, unit_name)
 VALUES("clove.", "Clove");
 
-
+INSERT INTO pantry_database.measurements(unit, unit_name)
+VALUES("pinch.", "Pinch");
 
 
 
