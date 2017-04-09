@@ -370,3 +370,4 @@ INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Arrowroot");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Egg");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Alum");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Extra Virgin Olive Oil");
+INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Lamb Chops");
