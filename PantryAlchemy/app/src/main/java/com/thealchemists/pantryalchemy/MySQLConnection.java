@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class MySQLConnection {
 
-    String url = "jdbc:mysql://myadress:3306/mydatabase";
+    String url = "jdbc:mysql://162.243.207.144:3306/pantry_database";
     String userName = "user";
     String password = "password";
 
@@ -35,7 +35,7 @@ public class MySQLConnection {
             ResultSet resultset = statement.executeQuery(/* MY SQL reqquest */);
 
             while(resultset.next()){
-                System.out.println(resultset.getString(/* THE COLUMN AND ROW I WANTED IN MY REQUEST */));       
+                System.out.println(resultset.getString(/* THE COLUMN AND ROW WANTED IN REQUEST */));       
             }
 
         }
