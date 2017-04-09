@@ -20,35 +20,34 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public MaterialSearchView searchView;
+    private MaterialSearchView searchView;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Init super.onCreate and set initial content view
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Create and configure toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Pantry Alchemy");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        // Set up the ViewPager with the sections adapter
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        // Set up tabs
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+        // Set up search view
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setVoiceSearch(true);
-
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
@@ -60,11 +59,10 @@ public class MainActivity extends AppCompatActivity {
                 searchView.setVisibility(View.GONE);
             }
         });
-
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                toast(query);
+                toast("You searched for: " + query);
                 return false;
             }
 
@@ -103,7 +101,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_settings) return true;
+        if(id == R.id.action_settings) {
+            toast("Settings are a work in progress...");
+            return true;
+        }
         else return super.onOptionsItemSelected(item);
     }
 

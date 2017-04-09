@@ -1,7 +1,3 @@
-/**
- * Created by mfanx2 on 4/9/2017.
- */
-
 package com.thealchemists.pantryalchemy;
 
 import java.util.ArrayList;
@@ -26,4 +22,6 @@ public class User {
     public String getLast_name() { return this.last_name; }
     public String getEmail() { return this.email; }
     public ArrayList<Ingredient> getFavorites() { return this.favorites; }
+    public void addToFavorites(Ingredient i) { this.favorites.add(i); }
+    public void removeFromFavorites(Ingredient i) { this.favorites.remove(i); }
 }
