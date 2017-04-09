@@ -20,9 +20,7 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     public MaterialSearchView searchView;
-
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
@@ -50,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setVoiceSearch(true);
-        final MaterialSearchView searchView = (MaterialSearchView) findViewById(R.id.search_view);
 
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
@@ -81,13 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
+        if(requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == RESULT_OK) {
             ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-            if (matches != null && matches.size() > 0) {
+            if(matches != null && matches.size() > 0) {
                 String searchWrd = matches.get(0);
-                if (!TextUtils.isEmpty(searchWrd)) {
-                    searchView.setQuery(searchWrd, false);
-                }
+                if(!TextUtils.isEmpty(searchWrd)) searchView.setQuery(searchWrd, false);
             }
 
             return;
@@ -97,37 +92,27 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         MenuItem item = menu.findItem(R.id.action_search);
         searchView.setMenuItem(item);
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        if(id == R.id.action_settings) return true;
+        else return super.onOptionsItemSelected(item);
     }
 
+    // Subclass SectionsPagerAdapter
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+        // Subclass constructor
+        public SectionsPagerAdapter(FragmentManager fm) { super(fm); }
 
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
+        // Subclass methods
         @Override
         public Fragment getItem(int position) {
             // Returning the current tabs
@@ -147,10 +132,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public int getCount() {
-            // Show 3 total pages.
-            return 3;
-        }
+        public int getCount() { return 3; }
 
         @Override
         public CharSequence getPageTitle(int position) {
@@ -166,8 +148,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Test method for easy toast messages
-    private void toast(String text) {
-        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-    }
+    // Debugging
+    private void toast(String text) { Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show(); }
 }
