@@ -161,7 +161,7 @@ INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Coriander Leaves");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Cloves");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Cinnamon");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Star Anise");
-INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Cayenne");
+INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Cayenne Pepper");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Caraway Seeds");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Cajun Spices");
 INSERT INTO pantry_database.ingredients(ing_name) VALUES ("Rock Salt");
