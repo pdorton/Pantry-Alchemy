@@ -33,5 +33,8 @@ VALUES("clove.", "Clove");
 INSERT INTO pantry_database.measurements(unit, unit_name)
 VALUES("pinch.", "Pinch");
 
+INSERT INTO pantry_database.measurements(unit, unit_name)
+VALUES("to taste.", "To Taste");
+
 
 
