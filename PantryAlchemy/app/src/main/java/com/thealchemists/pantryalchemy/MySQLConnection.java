@@ -1,20 +1,20 @@
-package com.thealchemists.pantryalchemy;
+//package com.thealchemists.pantryalchemy;
 
 import java.sql.*;
 
 public class MySQLConnection {
 
-    String url = "jdbc:mysql://162.243.207.144:3306/pantry_database";
-    String userName = "user";
-    String password = "password";;
-
     private static void request() {
 
+        String url = "jdbc:mysql://162.243.207.144:3306/pantry_database";
+        String userName = "user";
+        String password = "password";
         String query = "select name from pantry_database.ingredients;";
+        Connection conn = null;
 
         try {
             /* Initializing the connection */
-            conn = DriverManager.getConnection(url, user, passwd);
+            conn = DriverManager.getConnection(url, userName, password);
 
             Statement statement = conn.createStatement();
 
