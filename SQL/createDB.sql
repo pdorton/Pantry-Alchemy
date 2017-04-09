@@ -17,7 +17,7 @@ CREATE TABLE recipe(
 	id		INT		NOT NULL AUTO_INCREMENT,
 	recipe_name 		VARCHAR(64)	UNIQUE  	NOT NULL,
 	directions	VARCHAR(10000) NOT NULL,
-	photo		VARCHAR(200), 
+	photo		BLOB, 
 	times_favorited	int NOT NULL DEFAULT 0,
 	CONSTRAINT PK_RECIPE	PRIMARY KEY(id)	
 );
