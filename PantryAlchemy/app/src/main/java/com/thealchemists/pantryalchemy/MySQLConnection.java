@@ -6,25 +6,11 @@ public class MySQLConnection {
 
     String url = "jdbc:mysql://162.243.207.144:3306/pantry_database";
     String userName = "user";
-    String password = "password";
+    String password = "password";;
 
-    // used to establish the connection with the specified url, username and password
-    public static Connection getConnection(String url,String userName,String password) {
-        Connection con = null;
-        return test;
-    }
+    private static void request() {
 
-    // creates a statement object that can be used to execute SQL queries
-    public Statement createStatement() {
-        Statement test = null;
-        return test;
-    }
-
-    public void close() {
-        return;
-    }
-
-    private static void request(){
+        String query = "select name from pantry_database.ingredients;";
 
         try {
             /* Initializing the connection */
@@ -32,12 +18,13 @@ public class MySQLConnection {
 
             Statement statement = conn.createStatement();
 
-            ResultSet resultset = statement.executeQuery(/* MY SQL reqquest */);
+            ResultSet resultset = statement.executeQuery(query);
 
-            while(resultset.next()){
-                System.out.println(resultset.getString(/* THE COLUMN AND ROW WANTED IN REQUEST */));       
+            int columnIndex = 0;
+
+            while(resultset.next() && columnIndex <= resultset.getFetchSize()){
+                System.out.println(resultset.getString(columnIndex));       
             }
-
         }
         
         catch(SQLException e){
