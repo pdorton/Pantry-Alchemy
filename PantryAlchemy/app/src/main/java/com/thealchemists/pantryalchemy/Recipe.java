@@ -10,11 +10,11 @@ public class Recipe {
     private int times_favorited;
 
     // Constructor
-    public Recipe(String recipe_name, String directions, Image photo) {
+    public Recipe(String recipe_name, String directions, Image photo, int times_favorited) {
         this.recipe_name = recipe_name;
         this.directions = directions;
         this.photo = photo;
-        this.times_favorited = 0;
+        this.times_favorited = times_favorited;
     }
 
     // Methods
