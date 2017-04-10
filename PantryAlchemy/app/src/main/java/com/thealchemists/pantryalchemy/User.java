@@ -18,6 +18,7 @@ public class User {
         this.email = email;
         this.favorites = new ArrayList<Recipe>();
         this.shoppingList = new ArrayList<Ingredient>();
+        this.pantry = new ArrayList<Ingredient>();
     }
 
     // Methods
