@@ -2,16 +2,16 @@ package com.thealchemists.pantryalchemy;
 
 public class Measurement {
     // Data members
+    private int quantity;
     private String unit;
-    private String unit_name;
 
     // Constructor
-    public Measurement(String unit, String unit_name) {
+    public Measurement(int quantity, String unit) {
+        this.quantity = quantity;
         this.unit = unit;
-        this.unit_name = unit_name;
     }
 
     // Methods
+    public int getQuantity() { return this.quantity; }
     public String getUnit() { return this.unit; }
-    public String getUnit_name() { return this.unit_name; }
 }
