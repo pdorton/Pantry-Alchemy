@@ -1,7 +1,3 @@
-/**
- * Created by mfanx2 on 4/9/2017.
- */
-
 package com.thealchemists.pantryalchemy;
 
 public class Ingredient {

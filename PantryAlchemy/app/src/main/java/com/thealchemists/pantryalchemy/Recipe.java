@@ -1,7 +1,3 @@
-/**
- * Created by mfanx2 on 4/9/2017.
- */
-
 package com.thealchemists.pantryalchemy;
 
 import android.media.Image;
@@ -14,11 +10,11 @@ public class Recipe {
     private int times_favorited;
 
     // Constructor
-    public Recipe(String recipe_name, String directions, Image photo, int times_favorited) {
+    public Recipe(String recipe_name, String directions, Image photo) {
         this.recipe_name = recipe_name;
         this.directions = directions;
         this.photo = photo;
-        this.times_favorited = times_favorited;
+        this.times_favorited = 0;
     }
 
     // Methods

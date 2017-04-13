@@ -1,7 +1,3 @@
-/**
- * Created by wraith40k on 4/2/2017.
- */
-
 package com.thealchemists.pantryalchemy;
 
 import android.os.Bundle;
