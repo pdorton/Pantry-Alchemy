@@ -2,6 +2,7 @@ package com.thealchemists.pantryalchemy;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -20,35 +21,34 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public MaterialSearchView searchView;
+    private MaterialSearchView searchView;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Init super.onCreate and set initial content view
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Create and configure toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Pantry Alchemy");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
-
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        // Set up the ViewPager with the sections adapter
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        // Set up tabs
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+        // Set up search view
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
         searchView.setVoiceSearch(true);
-
         searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
             @Override
             public void onSearchViewShown() {
@@ -60,11 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 searchView.setVisibility(View.GONE);
             }
         });
-
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                toast(query);
+                toast("You searched for: " + query);
                 return false;
             }
 
@@ -74,6 +73,48 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // DEBUGGING
+        /*
+        // Add to favorites test
+        User user1 = new User("MarcAnthony", "Fanfan", "mfanx2@gmail.com");
+        Ingredient ing1 = new Ingredient("black beans", new Measurement(1, "can"));
+        Ingredient ing2 = new Ingredient("white rice", new Measurement(1, "can"));
+        Recipe rec1 = new Recipe("Black beans and rice", "Prepare beans and rice separately.\nThen combine and serve.", (Image) null);
+        user1.addToFavorites(rec1);
+        toast(user1.favorites.get(0).getRecipe_name() + "\nadded to favorites");
+        */
+        /*
+        // Remove from favorites test
+        User user1 = new User("MarcAnthony", "Fanfan", "mfanx2@gmail.com");
+        Ingredient ing1 = new Ingredient("black beans", new Measurement(1, "can"));
+        Ingredient ing2 = new Ingredient("white rice", new Measurement(1, "can"));
+        Recipe rec1 = new Recipe("Black beans and rice", "Prepare beans and rice separately.\nThen combine and serve.", (Image) null);
+        user1.addToFavorites(rec1);
+        user1.removeFromFavorites(rec1);
+        if(user1.favorites.isEmpty()) toast("Success!");
+        else toast("Failure...");
+        */
+        /*
+        // Add to shopping list test
+        User user1 = new User("MarcAnthony", "Fanfan", "mfanx2@gmail.com");
+        Ingredient ing1 = new Ingredient("black beans", new Measurement(1, "can"));
+        Ingredient ing2 = new Ingredient("white rice", new Measurement(1, "can"));
+        user1.addToShoppingList(ing1);
+        user1.addToShoppingList(ing2);
+        toast(user1.getShoppingList().get(0).getName() + "\n" + user1.getShoppingList().get(1).getName());
+        */
+        /*
+        // Remove from shopping list test
+        User user1 = new User("MarcAnthony", "Fanfan", "mfanx2@gmail.com");
+        Ingredient ing1 = new Ingredient("black beans", new Measurement(1, "can"));
+        Ingredient ing2 = new Ingredient("white rice", new Measurement(1, "can"));
+        user1.addToShoppingList(ing1);
+        user1.addToShoppingList(ing2);
+        user1.removeFromShoppingList(ing1);
+        user1.removeFromShoppingList(ing2);
+        if(user1.getShoppingList().isEmpty()) toast("Success!");
+        else toast("Failure...");
+        */
     }
 
     @Override
@@ -103,7 +144,10 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_settings) return true;
+        if(id == R.id.action_settings) {
+            toast("Settings are a work in progress...");
+            return true;
+        }
         else return super.onOptionsItemSelected(item);
     }
 
