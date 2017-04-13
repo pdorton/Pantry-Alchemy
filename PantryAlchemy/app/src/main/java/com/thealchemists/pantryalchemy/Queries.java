@@ -17,14 +17,10 @@ public class Queries {
 
 	ResultSet results = psmt.executeQuery();
 
-	while (results.next()){
+	while (results.next())
 		ingredientList.add(results.getString("ing_name"));
-	}
-
-	for(int i = 0; i < ingredientList.size(); i++){
-		System.out.println(ingredientList.get(i));
-	}
-
+	
+	    
 	connect.CloseConnection();
 	return ingredientList;
     }
