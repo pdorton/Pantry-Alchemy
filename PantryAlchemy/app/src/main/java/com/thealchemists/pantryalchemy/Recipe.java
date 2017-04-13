@@ -2,12 +2,15 @@ package com.thealchemists.pantryalchemy;
 
 import android.media.Image;
 
+import java.util.ArrayList;
+
 public class Recipe {
     // Data members
     private String recipe_name;
     private String directions;
     private Image photo;
     private int times_favorited;
+    private ArrayList<Ingredient> ingredients;
 
     // Constructor
     public Recipe(String recipe_name, String directions, Image photo) {
@@ -15,6 +18,7 @@ public class Recipe {
         this.directions = directions;
         this.photo = photo;
         this.times_favorited = 0;
+        this.ingredients = new ArrayList<Ingredient>();
     }
 
     // Methods

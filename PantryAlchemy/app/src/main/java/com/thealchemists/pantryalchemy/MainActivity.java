@@ -73,48 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        // DEBUGGING
-        /*
-        // Add to favorites test
-        User user1 = new User("MarcAnthony", "Fanfan", "mfanx2@gmail.com");
-        Ingredient ing1 = new Ingredient("black beans", new Measurement(1, "can"));
-        Ingredient ing2 = new Ingredient("white rice", new Measurement(1, "can"));
-        Recipe rec1 = new Recipe("Black beans and rice", "Prepare beans and rice separately.\nThen combine and serve.", (Image) null);
-        user1.addToFavorites(rec1);
-        toast(user1.favorites.get(0).getRecipe_name() + "\nadded to favorites");
-        */
-        /*
-        // Remove from favorites test
-        User user1 = new User("MarcAnthony", "Fanfan", "mfanx2@gmail.com");
-        Ingredient ing1 = new Ingredient("black beans", new Measurement(1, "can"));
-        Ingredient ing2 = new Ingredient("white rice", new Measurement(1, "can"));
-        Recipe rec1 = new Recipe("Black beans and rice", "Prepare beans and rice separately.\nThen combine and serve.", (Image) null);
-        user1.addToFavorites(rec1);
-        user1.removeFromFavorites(rec1);
-        if(user1.favorites.isEmpty()) toast("Success!");
-        else toast("Failure...");
-        */
-        /*
-        // Add to shopping list test
-        User user1 = new User("MarcAnthony", "Fanfan", "mfanx2@gmail.com");
-        Ingredient ing1 = new Ingredient("black beans", new Measurement(1, "can"));
-        Ingredient ing2 = new Ingredient("white rice", new Measurement(1, "can"));
-        user1.addToShoppingList(ing1);
-        user1.addToShoppingList(ing2);
-        toast(user1.getShoppingList().get(0).getName() + "\n" + user1.getShoppingList().get(1).getName());
-        */
-        /*
-        // Remove from shopping list test
-        User user1 = new User("MarcAnthony", "Fanfan", "mfanx2@gmail.com");
-        Ingredient ing1 = new Ingredient("black beans", new Measurement(1, "can"));
-        Ingredient ing2 = new Ingredient("white rice", new Measurement(1, "can"));
-        user1.addToShoppingList(ing1);
-        user1.addToShoppingList(ing2);
-        user1.removeFromShoppingList(ing1);
-        user1.removeFromShoppingList(ing2);
-        if(user1.getShoppingList().isEmpty()) toast("Success!");
-        else toast("Failure...");
-        */
     }
 
     @Override
