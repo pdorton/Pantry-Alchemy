@@ -68,7 +68,7 @@ public class Queries {
 
 		MySQLConnection connect = new MySQLConnection();
 		PreparedStatement psmt = null;
-		ArrayList<Ingredient> recipeIngredients = getRecipeingredients(thisRecipe);
+		ArrayList<Ingredient> recipeIngredients = getRecipeingredients(recipeId);
 		Recipe thisRecipe = null;
 
 		psmt = connect.startConnection().prepareStatement("SELECT recipe_name, directions, photo "
