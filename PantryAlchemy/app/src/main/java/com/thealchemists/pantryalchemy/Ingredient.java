@@ -10,7 +10,7 @@ public class Ingredient {
     public Ingredient(String ing_name, String unit, int quantity) {
         this.ing_name = ing_name;
         this.unit = unit;
-        this.quantity = quantity
+        this.quantity = quantity;
     }
 
     // Methods
