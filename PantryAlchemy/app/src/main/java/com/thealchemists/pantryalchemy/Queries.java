@@ -96,7 +96,7 @@ public class Queries {
 			//create recipe
 			thisRecipe = new Recipe(results.getString("recipe_name"), results.getString("directions"), photo, recipeIngredients);
 		}
-		
+		connect.CloseConnection();
 		return thisRecipe;
 
     }
