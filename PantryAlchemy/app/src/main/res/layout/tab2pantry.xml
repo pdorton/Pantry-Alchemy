@@ -9,9 +9,39 @@
     tools:context="com.thealchemists.pantryalchemy.MainActivity$PlaceholderFragment">
 
     <TextView
-        android:id="@+id/section_label"
+        android:id="@+id/pantryLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tab2 Pantry text"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Pantry" />
+
+    <Button
+        android:id="@+id/pantryRecipesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pantryLabel"
+        android:layout_centerHorizontal="true"
+        android:text="Recipies" />
+
+    <Button
+        android:id="@+id/pantryListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/pantryLabel"
+        android:text="List" />
+
+    <Button
+        android:id="@+id/pantryPantryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pantryRecipesButton"
+        android:layout_alignBottom="@+id/pantryRecipesButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:enabled="false"
+        android:text="Pantry" />
 
 </RelativeLayout>

@@ -16,17 +16,19 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private MaterialSearchView searchView;
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-    private ViewPager mViewPager;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         // Init super.onCreate and set initial content view
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -37,14 +39,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Pantry Alchemy");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
-        // Set up the ViewPager with the sections adapter
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        // Set up tabs
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
 
         // Set up search view
         searchView = (MaterialSearchView) findViewById(R.id.search_view);
@@ -71,6 +66,16 @@ public class MainActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 //Do some magic
                 return false;
+            }
+        });
+
+        Button pantryButton = (Button)findViewById(R.id.mainPantryButton);
+        pantryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent goToPantry = new Intent(getApplicationContext(),Tab2Pantry.class);
+                startActivity(goToPantry);
             }
         });
     }
@@ -109,46 +114,8 @@ public class MainActivity extends AppCompatActivity {
         else return super.onOptionsItemSelected(item);
     }
 
-    // Subclass SectionsPagerAdapter
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-        // Subclass constructor
-        public SectionsPagerAdapter(FragmentManager fm) { super(fm); }
 
-        // Subclass methods
-        @Override
-        public Fragment getItem(int position) {
-            // Returning the current tabs
-            switch(position){
-                case 0:
-                    Tab1List tab1 = new Tab1List();
-                    return tab1;
-                case 1:
-                    Tab2Pantry tab2 = new Tab2Pantry();
-                    return tab2;
-                case 2:
-                    Tab3Recipes tab3 = new Tab3Recipes();
-                    return tab3;
-                default:
-                    return null;
-            }
-        }
 
-        @Override
-        public int getCount() { return 3; }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "List";
-                case 1:
-                    return "Pantry";
-                case 2:
-                    return "Recipes";
-            }
-            return null;
-        }
-    }
 
     // Debugging
     private void toast(String text) { Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show(); }
