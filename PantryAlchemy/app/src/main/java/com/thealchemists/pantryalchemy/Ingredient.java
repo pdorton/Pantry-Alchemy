@@ -6,12 +6,14 @@ public class Ingredient {
     private String unit;
     private int quantity;
 
+
     // Constructor
     public Ingredient(String ing_name, String unit, int quantity) {
         this.ing_name = ing_name;
         this.unit = unit;
         this.quantity = quantity;
     }
+
 
     // Methods
     public String getName() { return this.ing_name; }

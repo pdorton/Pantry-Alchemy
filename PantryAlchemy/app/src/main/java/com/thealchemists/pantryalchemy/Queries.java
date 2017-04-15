@@ -1,7 +1,9 @@
+
 package com.thealchemists.pantryalchemy;
 
 import java.sql.*;
 import java.util.ArrayList;
+
 
 public class Queries {
 
@@ -105,6 +107,5 @@ public class Queries {
     }
 
 
-
-
 }
+
