@@ -3,17 +3,20 @@ package com.thealchemists.pantryalchemy;
 public class Ingredient {
     // Data members
     private String ing_name;
-    private Measurement measurement;
+    private String unit;
+    private int quantity;
 
 
     // Constructor
-    public Ingredient(String ing_name, Measurement measurement) {
+    public Ingredient(String ing_name, String unit, int quantity) {
         this.ing_name = ing_name;
-        this.measurement = measurement;
+        this.unit = unit;
+        this.quantity = quantity;
     }
 
 
     // Methods
     public String getName() { return this.ing_name; }
-    public Measurement getMeasurement() { return this.measurement; }
+    public String getUnit() { return this.unit; }
+    public int getQuantity() { return this.quantity; }
 }
