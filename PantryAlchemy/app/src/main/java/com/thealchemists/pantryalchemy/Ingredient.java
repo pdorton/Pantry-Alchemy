@@ -5,11 +5,13 @@ public class Ingredient {
     private String ing_name;
     private Measurement measurement;
 
+
     // Constructor
     public Ingredient(String ing_name, Measurement measurement) {
         this.ing_name = ing_name;
         this.measurement = measurement;
     }
+
 
     // Methods
     public String getName() { return this.ing_name; }
