@@ -1,4 +1,4 @@
-//package com.thealchemists.pantryalchemy;
+package com.thealchemists.pantryalchemy;
 
 import java.sql.*;
 

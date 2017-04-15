@@ -1,11 +1,13 @@
-import java.sql.*
+package com.thealchemists.pantryalchemy;
+
+import java.sql.*;
 import java.util.ArrayList;
 
 public class Queries {
 
 
     //sends back list of all ingredients ordered by name
-    protected static String getIngredients() {
+    protected static  ArrayList<String> getIngredients() throws SQLException{
         
 	    ArrayList<String> ingredientList = new ArrayList<String>();
 		MySQLConnection connect = new MySQLConnection();
@@ -24,14 +26,14 @@ public class Queries {
     }
 
     //not sure if we need this...
-    protected static Image getPhoto() {
+   // protected static Image getPhoto() {
     	//todo
-    	return;
-    }
+    	//return;
+   // }
 
 
     //creates a arraylist of ingredients based on the recipeId given sends it back
-    protected static ArrayList<Ingredient> getRecipeingredients(int recipeId){
+    protected static ArrayList<Ingredient> getRecipeingredients(int recipeId) throws SQLException{
 
     	MySQLConnection connect = new MySQLConnection();
 		PreparedStatement psmt = null;
@@ -64,12 +66,13 @@ public class Queries {
 
     /*makes the recipe object given a Id, could make the first 5 in the table etc..
       probably need to get number of times favorited but not sure yet*/
-    protected static Recipe makeRecipe(int recipeId){
+    protected static Recipe makeRecipe(int recipeId) throws SQLException{
 
 		MySQLConnection connect = new MySQLConnection();
 		PreparedStatement psmt = null;
 		ArrayList<Ingredient> recipeIngredients = getRecipeingredients(recipeId);
 		Recipe thisRecipe = null;
+
 
 		psmt = connect.startConnection().prepareStatement("SELECT recipe_name, directions, photo "
 														+ "FROM recipe "
@@ -82,7 +85,7 @@ public class Queries {
 		while(results.next()){
 
 			//get photo as blob
-			blob = results.getBlob("photo");
+			Blob blob = results.getBlob("photo");
 			 
 			//get length of binary data
 			int blobLength = (int) blob.length(); 
