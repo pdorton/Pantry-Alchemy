@@ -1,0 +1,68 @@
+CREATE TABLE user(
+	id		INTEGER		NOT NULL PRIMARY KEY AUTOINCREMENT,
+	first_name	VARCHAR(64) NOT NULL,
+	last_name	VARCHAR(64)	NOT NULL,
+	email 		VARCHAR(255)	
+);
+
+CREATE TABLE recipe(
+	id		INTEGER		NOT NULL PRIMARY KEY AUTOINCREMENT,
+	recipe_name 		VARCHAR(64)	UNIQUE  	NOT NULL,
+	directions	VARCHAR(10000) NOT NULL,
+	photo		BLOB, 
+	times_favorited	INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE favorite_recipes(
+	uid		INTEGER		NOT NULL,
+	rid 	INTEGER 	NOT NULL,
+	PRIMARY KEY(uid,rid),
+	FOREIGN KEY(uid) REFERENCES user(id),
+	FOREIGN KEY(rid) REFERENCES recipe(id)
+);
+
+CREATE TABLE pantry(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	pantry_name VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE measurements(
+	id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	unit VARCHAR(10) NOT NULL UNIQUE,
+	unit_name	VARCHAR(64) NOT NULL UNIQUE
+);
+
+CREATE TABLE ingredients(
+	id	INTEGER NOT NULL PRIMARY KEYAUTOINCREMENT,
+	ing_name	VARCHAR(64) UNIQUE NOT NULL
+);
+
+CREATE TABLE pantry_user(
+	uid	INTEGER NOT NULL,
+	pid	INTEGER NOT NULL,
+	PRIMARY KEY(uid, pid),
+	FOREIGN KEY(uid) REFERENCES user(id),
+	FOREIGN KEY(pid) REFERENCES pantry(id)
+);
+
+CREATE TABLE pantry_ingredient(
+	ing_id	INTEGER NOT NULL,
+	pid	INTEGER NOT NULL,
+	measure_id	INTEGER,
+	quantity INTEGER NOT NULL,
+	PRIMARY KEY(ing_id, pid),
+	FOREIGN KEY(ing_id) REFERENCES ingredients(id),
+	FOREIGN KEY(measure_id) REFERENCES measurements(id),
+	FOREIGN KEY(pid) REFERENCES pantry(id)
+);
+
+CREATE TABLE recipe_ingredient(
+	ing_id	INTEGER NOT NULL,
+	rid	INTEGER NOT NULL,
+	measure_id	INTEGER ,
+	quantity INTEGER NOT NULL,
+	PRIMARY KEY(ing_id, rid),
+	FOREIGN KEY(ing_id) REFERENCES ingredients(id),
+	FOREIGN KEY(measure_id) REFERENCES measurements(id),
+	FOREIGN KEY(rid) REFERENCES recipe(id)
+);
