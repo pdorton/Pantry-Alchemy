@@ -44,7 +44,6 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         setContentView(R.layout.tab2pantry);
 
 
-
         //initialize database
         myDbHelper = new DataBaseHelper(this);
         copyDatabase();
@@ -62,7 +61,7 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         //Log.i("checking", "all ingredients there if there are " +ingredientList.size() );
 
 
-        FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
+        /*FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
         final Spinner pantryIngredientListSpinner = (Spinner) findViewById(R.id.ingredientAdderSpinner);
 
         //TODO:DATABASE: NEED TO PUT CODE HERE TO INSERT ALL THE INGREDIENTS FROM THE SQL CALL
@@ -73,7 +72,7 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         final EditText pantryIngredientList = (EditText) findViewById(R.id.pantryIngredientDisplay);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pantryIngredientListSpinner.setAdapter(dataAdapter);
-
+/*
 
         pantryIngredientListSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -83,6 +82,7 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
                 pantryIngredientList.append(ingredientToAddToPantry);
             }
         });
+
         addToPantry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +91,7 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
                 pantryIngredientListSpinner.setVisibility(View.VISIBLE);
 
             }
-        });
+        });*/
 
 
 
