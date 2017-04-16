@@ -46,9 +46,8 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab2pantry);
 
-        /*FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
+        FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
         final Spinner pantryIngredientListSpinner = (Spinner) findViewById(R.id.ingredientAdderSpinner);
-        int numIngredients = 5; //TODO:DATABASE: NEED TO ASSIGN THIS INT TO BE THE NUMBER OF ITEMS IN THE SQL RETURN OF THE INGREDIENT LIST AND REMOVE THE BELOW CODE
         ArrayList<String> ingredientList = new ArrayList<>();
         //TODO:DATABASE: NEED TO PUT CODE HERE TO INSERT ALL THE INGREDIENTS FROM THE SQL CALL
         ingredientList.add("apples");
@@ -62,7 +61,7 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         final EditText pantryIngredientList = (EditText) findViewById(R.id.pantryIngredientDisplay);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pantryIngredientListSpinner.setAdapter(dataAdapter);
-
+/*
 
         pantryIngredientListSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -71,7 +70,8 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
                 String ingredientToAddToPantry = (String) pantryIngredientListSpinner.getItemAtPosition(selectionPos);
                 pantryIngredientList.append(ingredientToAddToPantry);
             }
-        });
+        });*/
+
         addToPantry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +80,8 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
                 pantryIngredientListSpinner.setVisibility(View.VISIBLE);
 
             }
-        });*/
+        });
+
 
 
 

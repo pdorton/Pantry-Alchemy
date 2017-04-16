@@ -78,7 +78,9 @@
         android:layout_below="@+id/pantryRecipesButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
+        android:cursorVisible="false"
         android:ems="10"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        tools:clickable="false" />
 
 </RelativeLayout>
