@@ -15,9 +15,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.sql.*;
 
 
@@ -46,16 +43,30 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab2pantry);
 
-        /*FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
+
+
+        //initialize database
+        myDbHelper = new DataBaseHelper(this);
+        copyDatabase();
+
+        //debug
+        //Log.i("get List", "Getting list");
+
+        //get ingredients
+        ArrayList<String> ingredientList = myDbHelper.getIngredientList();
+        for(int i =0;i <ingredientList.size()-1;i++){
+            Log.i("List", ingredientList.get(i));
+        }
+
+        //debug
+        //Log.i("checking", "all ingredients there if there are " +ingredientList.size() );
+
+
+        FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
         final Spinner pantryIngredientListSpinner = (Spinner) findViewById(R.id.ingredientAdderSpinner);
-        int numIngredients = 5; //TODO:DATABASE: NEED TO ASSIGN THIS INT TO BE THE NUMBER OF ITEMS IN THE SQL RETURN OF THE INGREDIENT LIST AND REMOVE THE BELOW CODE
-        ArrayList<String> ingredientList = new ArrayList<>();
+
         //TODO:DATABASE: NEED TO PUT CODE HERE TO INSERT ALL THE INGREDIENTS FROM THE SQL CALL
-        ingredientList.add("apples");
-        ingredientList.add("butter");
-        ingredientList.add("crab");
-        ingredientList.add("donut");
-        ingredientList.add("eclair");
+
 
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ingredientList);
 
@@ -80,21 +91,12 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
                 pantryIngredientListSpinner.setVisibility(View.VISIBLE);
 
             }
-        });*/
+        });
 
 
 
 
-        myDbHelper = new DataBaseHelper(this);
-        File database = getApplicationContext().getDatabasePath(DataBaseHelper.DB_NAME);
-        if(false == database.exists()){
-            myDbHelper.getReadableDatabase();
-            if(DataBaseHelper.copyDataBase(this)){
-                Toast.makeText(this, "Copy database success", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "Copy database failed", Toast.LENGTH_SHORT).show();
-            }
-        }
+
 
     }
 
@@ -109,6 +111,19 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
     {
 
 
+    }
+
+    public void copyDatabase(){
+
+        File database = getApplicationContext().getDatabasePath(DataBaseHelper.DB_NAME);
+        if(false == database.exists()){
+            myDbHelper.getReadableDatabase();
+            if(DataBaseHelper.copyDataBase(this)){
+                Toast.makeText(this, "Copy database success", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Copy database failed", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 
