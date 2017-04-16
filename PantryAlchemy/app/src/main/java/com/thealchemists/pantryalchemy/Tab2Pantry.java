@@ -37,7 +37,7 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
     private DataBaseHelper myDbHelper = null;
     private SQLiteDatabase db = null;
     private ArrayList<String> ingredientsInPantry = new ArrayList<>();
-
+    private boolean hasPantryBeenOpened = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -85,11 +85,21 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
 
         pantryIngredientListSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String pickedIngredient = (String)parent.getItemAtPosition(position);
-                Log.i("Selected ", "Selected " + pickedIngredient );
-                TextView pantryIngredientList = (TextView) findViewById(R.id.pantryIngredientDisplay);
-                addToPantry(pickedIngredient,pantryIngredientList);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                if(hasPantryBeenOpened)
+                {
+                    String pickedIngredient = (String)parent.getItemAtPosition(position);
+                    Log.i("Selected ", "Selected " + pickedIngredient );
+                    ingredientsInPantry.add(pickedIngredient);
+                    TextView pantryIngredientList = (TextView) findViewById(R.id.pantryIngredientDisplay);
+                    addToPantry(ingredientsInPantry,pantryIngredientList);
+                }
+                else
+                {// this eliminates the issue of it seemingly always taking Acacia on open
+                    hasPantryBeenOpened = true;
+                }
+
             }
 
             @Override
@@ -104,30 +114,36 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
     public void copyDatabase(){
 
         File database = getApplicationContext().getDatabasePath(DataBaseHelper.DB_NAME);
-        if(false == database.exists()){
+        if(false == database.exists())
+        {
             myDbHelper.getReadableDatabase();
-            if(DataBaseHelper.copyDataBase(this)){
+            if(DataBaseHelper.copyDataBase(this))
+            {
                 Toast.makeText(this, "Copy database success", Toast.LENGTH_SHORT).show();
-            }else{
+            }
+            else
+            {
                 Toast.makeText(this, "Copy database failed", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    public void addToPantry(String ingredient, TextView pantryIngredientsList)
-    {
-        pantryIngredientsList.setText(pantryIngredientsList.getText() + ingredient + "\n");
+    public void addToPantry(ArrayList<String> ingredientsInPantry, TextView pantryIngredientsList)
+    {   String pantryBuffer = "";
+        for( int i = 0 ; i < ingredientsInPantry.size(); i++)
+        {
+            pantryBuffer = (pantryBuffer + ingredientsInPantry.get(i) + "\n");
+        }
+
+        pantryIngredientsList.setText(pantryBuffer);
 
     }
 
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-    {
-        String pickedIngredient = (String)parent.getItemAtPosition(position);
-        Log.i("Selected ", "Selected " + pickedIngredient );
-        TextView pantryIngredientList = (TextView) findViewById(R.id.pantryIngredientDisplay);
-        addToPantry(pickedIngredient,pantryIngredientList);
+    {// not sure why this is needed here but it seems to be, but when item is picked, this is not called
+
     }
 
     @Override
