@@ -27,6 +27,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedListener
@@ -34,6 +36,7 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
 
     private DataBaseHelper myDbHelper = null;
     private SQLiteDatabase db = null;
+    private ArrayList<String> ingredientsInPantry = new ArrayList<>();
 
 
     @Override
@@ -61,57 +64,42 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         //Log.i("checking", "all ingredients there if there are " +ingredientList.size() );
 
 
-        /*FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
+        FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
         final Spinner pantryIngredientListSpinner = (Spinner) findViewById(R.id.ingredientAdderSpinner);
-
         //TODO:DATABASE: NEED TO PUT CODE HERE TO INSERT ALL THE INGREDIENTS FROM THE SQL CALL
-
-
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ingredientList);
-
-        final EditText pantryIngredientList = (EditText) findViewById(R.id.pantryIngredientDisplay);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pantryIngredientListSpinner.setAdapter(dataAdapter);
-/*
+        TextView pantryListDisplay = (TextView)findViewById(R.id.pantryIngredientDisplay);
+        pantryListDisplay.setText("");
 
-        pantryIngredientListSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        addToPantry.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int selectionPos = pantryIngredientListSpinner.getSelectedItemPosition();
-                String ingredientToAddToPantry = (String) pantryIngredientListSpinner.getItemAtPosition(selectionPos);
-                pantryIngredientList.append(ingredientToAddToPantry);
-            }
-        });
-
-        addToPantry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
+            public void onClick(View v)
+            {
                 pantryIngredientListSpinner.setVisibility(View.VISIBLE);
 
             }
-        });*/
+        });
 
+        pantryIngredientListSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String pickedIngredient = (String)parent.getItemAtPosition(position);
+                Log.i("Selected ", "Selected " + pickedIngredient );
+                TextView pantryIngredientList = (TextView) findViewById(R.id.pantryIngredientDisplay);
+                addToPantry(pickedIngredient,pantryIngredientList);
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-
-
-
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-    {
-        System.out.println("position = " + position);
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent)
-    {
-
+            }
+        });
 
     }
+
 
     public void copyDatabase(){
 
@@ -126,5 +114,25 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         }
     }
 
+    public void addToPantry(String ingredient, TextView pantryIngredientsList)
+    {
+        pantryIngredientsList.setText(pantryIngredientsList.getText() + ingredient + "\n");
 
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
+        String pickedIngredient = (String)parent.getItemAtPosition(position);
+        Log.i("Selected ", "Selected " + pickedIngredient );
+        TextView pantryIngredientList = (TextView) findViewById(R.id.pantryIngredientDisplay);
+        addToPantry(pickedIngredient,pantryIngredientList);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent)
+    {
+
+    }
 }
