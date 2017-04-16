@@ -5,8 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -80,6 +82,31 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
         if(myDataBase != null)
             myDataBase.close();
+
+    }
+
+    public ArrayList<String> getIngredientList(){
+
+        String query = "SELECT ing_name FROM ingredients ORDER BY ing_name";
+        ArrayList<String> list = new ArrayList<String>();
+        Log.i("Getting DB", "getting DB");
+        openDataBase();
+        Log.i("Getting DB", "Got the DB");
+
+        Cursor results = myDataBase.rawQuery(query, null);
+        results.moveToFirst();
+
+        while (!results.isAfterLast()) {
+            list.add(results.getString(0));
+            results.moveToNext();
+        }
+
+        results.close();
+        closeDatabase();
+        return list;
+
+
+
 
     }
 
