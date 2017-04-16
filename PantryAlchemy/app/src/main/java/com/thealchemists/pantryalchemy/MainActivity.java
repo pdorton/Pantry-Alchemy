@@ -115,8 +115,53 @@ public class MainActivity extends AppCompatActivity {
         else return super.onOptionsItemSelected(item);
     }
 
+    protected void facebookSDKInitialize() {
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+    // Facebook Login
+    @Override
+    public View onCreateView(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.splash, container, false);
 
+        loginButton = (LoginButton) view.findViewById(R.id.login_button);
+        loginButton.setReadPermissions("email");
+
+        // Callback registration
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // this method should be called on the 'User' class
+                // and yield to their corresponding 'Pantry' class through the database.
+            }
+
+            @Override
+            public void onCancel() {
+                // this method should return the User to the initial page app renders.
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // When the app cannot connect through Facebook and authenticate user, do
+            }
+        });
+    }
+
+    // Facebook Main Activity
+    public class MainActivity {
+        CallbackManager callbackManager;
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            callbackManager = CallbackManager.Factory.create();
+            LoginButton loginButton = (LoginButton) view.findViewById(R.id.usersettings_fragment_login_button);
+            loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+                // Main Activity; user already in database.
+            });
+        }
 
     // Debugging
     private void toast(String text) { Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show(); }
