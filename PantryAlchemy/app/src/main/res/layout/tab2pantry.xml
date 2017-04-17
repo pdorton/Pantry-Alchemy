@@ -49,16 +49,15 @@
         android:id="@+id/pantryAddIngredientButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/pantryLabel"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/pantryLabel"
-        android:layout_marginBottom="12dp"
         android:clickable="true"
         app:backgroundTint="@android:color/transparent"
         app:fabSize="mini"
         app:srcCompat="@android:drawable/ic_input_add"
 
-        />
+        android:layout_marginBottom="39dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/pantryLabel"
+        android:layout_alignStart="@+id/pantryLabel" />
 
     <TextView
         android:id="@+id/pantryCategoryHeaderPantry"
@@ -196,5 +195,56 @@
         android:layout_below="@+id/editText4"
         android:layout_alignLeft="@+id/pantryIngredientDisplayPantry"
         android:layout_alignStart="@+id/pantryIngredientDisplayPantry" />
+
+    <Button
+        android:id="@+id/pantryAddIngredientButtonPantry"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/pantryInsertIngredientPantry"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/pantryInsertIngredientPantry"
+        android:layout_toLeftOf="@+id/editText2"
+        android:layout_weight="1"
+        android:contentDescription="Adds ingredient to pantry"
+        android:padding="0dp"
+        android:text="+"
+        android:textSize="24sp"
+        tools:text="+" />
+
+    <Button
+        android:id="@+id/pantryAddIngredientButtonFridge"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/editText2"
+        android:layout_toLeftOf="@+id/editText2"
+        android:layout_weight="1"
+        android:contentDescription="Adds ingredient to pantry"
+        android:padding="0dp"
+        android:text="+"
+        android:textSize="24sp"
+        tools:text="+"
+        android:layout_alignBottom="@+id/editText2" />
+
+    <Button
+        android:id="@+id/pantryAddIngredientButtonFreezer"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="Adds ingredient to pantry"
+        android:padding="0dp"
+        android:text="+"
+        android:textSize="24sp"
+        tools:text="+"
+        android:layout_alignTop="@+id/editText4"
+        android:layout_toLeftOf="@+id/editText4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/editText4" />
 
 </RelativeLayout>
