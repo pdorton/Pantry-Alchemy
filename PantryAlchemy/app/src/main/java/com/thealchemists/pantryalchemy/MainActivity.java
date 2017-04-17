@@ -75,8 +75,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent goToPantry = new Intent(getApplicationContext(),Tab2Pantry.class);
-                startActivity(goToPantry);
+                Intent[] intents = new Intent[3];
+
+                Intent pantryIntent = new Intent(getApplicationContext(),Tab2Pantry.class);
+
+                intents[0] = pantryIntent;
+                startActivity(pantryIntent);
             }
         });
     }

@@ -25,6 +25,13 @@
 
 
         </activity>
+
+        <activity
+            android:name=".Tab1List"
+            android:exported="true">
+
+        </activity>
+
     </application>
 
 </manifest>

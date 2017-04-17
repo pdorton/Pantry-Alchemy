@@ -8,10 +8,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.thealchemists.pantryalchemy.MainActivity$PlaceholderFragment">
 
-    <TextView
-        android:id="@+id/pantryLabel"
+    <Button
+        android:id="@+id/recipiesListButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tab3 Recipes text"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="List" />
 
+    <Button
+        android:id="@+id/recipesRecipesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:enabled="false"
+        android:text="Recipes" />
+
+    <Button
+        android:id="@+id/recipesPantryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Pantry" />
+
+    <GridView
+        android:id="@+id/recipeGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="69dp"
+        android:elevation="1dp"
+        android:layout_below="@+id/recipiesListButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
