@@ -5,7 +5,8 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.thealchemists.pantryalchemy"
-        minSdkVersion 14
+        // Changed from 14 to 15
+        minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -20,6 +21,11 @@ android {
     }
 }
 
+repositories {
+    // Needed for Facebook login
+    mavenCentral()
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -30,4 +36,6 @@ dependencies {
     compile 'com.android.support:design:25.3.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/mysql-connector-java-3.1.14-bin.jar')
+    // Facebook SDK
+    compile 'com.facebook.android:facebook-android-sdk:4.21.1'
 }

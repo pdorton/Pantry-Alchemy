@@ -70,19 +70,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button pantryButton = (Button)findViewById(R.id.mainPantryButton);
-        pantryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent[] intents = new Intent[3];
-
-                Intent pantryIntent = new Intent(getApplicationContext(),Tab2Pantry.class);
-
-                intents[0] = pantryIntent;
-                startActivity(pantryIntent);
-            }
-        });
+//        Button pantryButton = (Button)findViewById(R.id.mainPantryButton);
+//        pantryButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                Intent[] intents = new Intent[3];
+//
+//                Intent pantryIntent = new Intent(getApplicationContext(),Tab2Pantry.class);
+//
+//                intents[0] = pantryIntent;
+//                startActivity(pantryIntent);
+//            }
+//        });
     }
 
     @Override
