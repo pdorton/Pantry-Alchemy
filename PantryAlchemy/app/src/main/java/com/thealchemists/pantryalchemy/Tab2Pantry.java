@@ -3,6 +3,7 @@ package com.thealchemists.pantryalchemy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.File;
@@ -72,7 +74,6 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         pantryIngredientListSpinner.setAdapter(dataAdapter);
         TextView pantryListDisplay = (TextView)findViewById(R.id.pantryIngredientDisplay);
         pantryListDisplay.setText("");
-
         addToPantry.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -107,6 +108,31 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
 
             }
         });
+
+        Button pantryListButton = (Button) findViewById(R.id.pantryListButton);
+
+        pantryListButton.setOnClickListener(new View.OnClickListener()
+        {//MOVES THE ACTIVITY TO THE LIST ACTIVITY AND PASSES ALL OF THE PANTRY ITEMS.
+            @Override
+            public void onClick(View v)
+            {
+                String[] passingPantry = new String[ingredientsInPantry.size()];
+                for(int i = 0 ; i < ingredientsInPantry.size(); i++)
+                {
+                    passingPantry[i] = ingredientsInPantry.get(i);
+                }
+                Intent moveFromPantryToList = new Intent(Tab2Pantry.this,Tab1List.class);
+                moveFromPantryToList.putExtra("passingPantry", passingPantry);
+                startActivity(moveFromPantryToList);
+
+            }
+        });
+
+
+
+
+
+
 
     }
 
