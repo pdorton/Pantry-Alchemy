@@ -60,24 +60,141 @@
 
         />
 
-    <Spinner
-        android:id="@+id/ingredientAdderSpinner"
+    <TextView
+        android:id="@+id/pantryCategoryHeaderPantry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/pantryAddIngredientButton"
-        android:layout_marginBottom="85dp"
-        android:visibility="invisible"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/pantryListButton"
+        android:layout_marginTop="27dp"
+        android:contentDescription="Category Header for Pantry"
+        android:text="PANTRY"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="PANTRY" />
 
     <TextView
-        android:id="@+id/pantryIngredientDisplay"
+        android:id="@+id/pantryCategoryHeaderFridge"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/pantryRecipesButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:text="Temp"
-        android:visibility="visible" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/pantryIngredientDisplayPantry"
+        android:layout_marginTop="50dp"
+        android:contentDescription="Category Header for Fridge Ingredients"
+        android:text="FRIDGE"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="FRIDGE" />
+
+    <TextView
+        android:id="@+id/pantryCategoryHeaderFreezer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/pantryIngredientDisplayFridge"
+        android:layout_marginTop="50dp"
+        android:contentDescription="Category Header for Fridge Ingredients"
+        android:text="FREEZER"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="FREEZER" />
+
+    <EditText
+        android:id="@+id/pantryInsertIngredientPantry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/pantryCategoryHeaderPantry"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="Field for ingredient insertion"
+        android:ems="10"
+        android:hint="Insert New Pantry Ingredient"
+        android:inputType="text"
+        android:singleLine="true"
+        android:text="Add Ingredient to Pantry"
+        tools:text="Add Ingredient to Pantry" />
+
+    <TextView
+        android:id="@+id/pantryIngredientDisplayPantry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pantryInsertIngredientPantry"
+        android:layout_alignStart="@+id/pantryInsertIngredientPantry"
+        android:layout_below="@+id/pantryInsertIngredientPantry"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="Displays Ingredients in Pantry"
+        android:text="DisplayIngredientsHere"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:text="DisplayIngredientsHere" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pantryInsertIngredientPantry"
+        android:layout_alignStart="@+id/pantryInsertIngredientPantry"
+        android:layout_below="@+id/pantryCategoryHeaderFridge"
+        android:layout_marginTop="12dp"
+        android:contentDescription="Field for ingredient insertion"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Add Ingredient to Fridge"
+        tools:text="Add Ingredient to Fridge" />
+
+    <TextView
+        android:id="@+id/pantryIngredientDisplayFridge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="DisplayIngredientsHere"
+        android:text="DisplayIngredientsHere"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:text="DisplayIngredientsHere"
+        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/pantryIngredientDisplayFreezer"
+        android:layout_alignStart="@+id/pantryIngredientDisplayFreezer" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_below="@+id/pantryCategoryHeaderFreezer"
+        android:layout_marginTop="12dp"
+        android:contentDescription="Field for ingredient insertion"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Add Ingredient to Freezer"
+        tools:text="Add Ingredient to Freezer" />
+
+    <TextView
+        android:id="@+id/pantryIngredientDisplayFreezer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DisplayIngredientsHere"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:text="DisplayIngredientsHere"
+        android:layout_below="@+id/editText4"
+        android:layout_alignLeft="@+id/pantryIngredientDisplayPantry"
+        android:layout_alignStart="@+id/pantryIngredientDisplayPantry" />
 
 </RelativeLayout>

@@ -55,18 +55,18 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         //debug
         //Log.i("checking", "all ingredients there if there are " +ingredientList.size() );
 
-
-        FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
-        final Spinner pantryIngredientListSpinner = (Spinner) findViewById(R.id.ingredientAdderSpinner);
-
-        //TODO:DATABASE: NEED TO PUT CODE HERE TO INSERT ALL THE INGREDIENTS FROM THE SQL CALL
-
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ingredientList);
-
-        final EditText pantryIngredientList = (EditText) findViewById(R.id.pantryIngredientDisplay);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        pantryIngredientListSpinner.setAdapter(dataAdapter);
+//
+//        FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
+//        final Spinner pantryIngredientListSpinner = (Spinner) findViewById(R.id.ingredientAdderSpinner);
+//
+//        //TODO:DATABASE: NEED TO PUT CODE HERE TO INSERT ALL THE INGREDIENTS FROM THE SQL CALL
+//
+//
+//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ingredientList);
+//
+//        final EditText pantryIngredientList = (EditText) findViewById(R.id.pantryIngredientDisplay);
+//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        pantryIngredientListSpinner.setAdapter(dataAdapter);
 
 
         /*pantryIngredientListSpinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -77,16 +77,16 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
                 pantryIngredientList.append(ingredientToAddToPantry);
             }
         });*/
-
-        addToPantry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                pantryIngredientListSpinner.setVisibility(View.VISIBLE);
-
-            }
-        });
+//
+//        addToPantry.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                pantryIngredientListSpinner.setVisibility(View.VISIBLE);
+//
+//            }
+//        });
 
 
 
