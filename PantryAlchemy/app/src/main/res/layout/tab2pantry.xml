@@ -141,7 +141,9 @@
         android:textAlignment="viewStart"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        tools:text="DisplayIngredientsHere" />
+        tools:text="DisplayIngredientsHere"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/editText2"
@@ -168,7 +170,9 @@
         tools:text="DisplayIngredientsHere"
         android:layout_below="@+id/editText2"
         android:layout_alignLeft="@+id/pantryIngredientDisplayFreezer"
-        android:layout_alignStart="@+id/pantryIngredientDisplayFreezer" />
+        android:layout_alignStart="@+id/pantryIngredientDisplayFreezer"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/editText4"
