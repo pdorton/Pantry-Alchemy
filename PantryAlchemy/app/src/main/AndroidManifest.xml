@@ -32,6 +32,11 @@
 
         </activity>
 
+
+        <activity android:name=".Tab3Recipes"
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

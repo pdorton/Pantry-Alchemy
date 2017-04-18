@@ -81,4 +81,27 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:id="@+id/addIngredientToSpinnerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/pantryAddIngredientButton"
+        android:layout_toLeftOf="@+id/pantryRecipesButton"
+        android:layout_toStartOf="@+id/pantryRecipesButton"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:text="Add Ingredient to list"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/itemToAddToListText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pantryRecipesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="87dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Put new item here."
+        android:visibility="invisible" />
+
 </RelativeLayout>

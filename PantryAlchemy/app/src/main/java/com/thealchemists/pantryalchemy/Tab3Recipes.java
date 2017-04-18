@@ -17,7 +17,7 @@ public class Tab3Recipes extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab3recipes);
 
-
+/*
         Button recipesListButton = (Button) findViewById(R.id.recipiesListButton);
         Button recipesPantryButton = (Button) findViewById(R.id.recipesPantryButton);
 
@@ -42,7 +42,7 @@ public class Tab3Recipes extends Activity
                 startActivity(moveFromRecipeToPantry);
             }
         });
-
+*/
 
     }
 }
