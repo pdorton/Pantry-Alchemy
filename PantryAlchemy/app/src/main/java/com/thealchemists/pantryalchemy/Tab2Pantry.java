@@ -1,10 +1,12 @@
 package com.thealchemists.pantryalchemy;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import java.io.File;
 import android.widget.AdapterView;
@@ -31,6 +33,30 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab2pantry);
 
+
+        // Buttons
+
+        Button pantryRecipesButton = (Button) findViewById(R.id.pantryRecipesButton);
+        Button pantryListButton = (Button) findViewById(R.id.pantryListButton);
+        pantryRecipesButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent moveFromPantryToRecipes = new Intent(Tab2Pantry.this, Tab3Recipes.class);
+                startActivity(moveFromPantryToRecipes);
+            }
+        });
+
+        pantryListButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent moveFromPantryToList = new Intent(Tab2Pantry.this,Tab1List.class);
+                startActivity(moveFromPantryToList);
+            }
+        });
 
         //initialize database
         myDbHelper = new DataBaseHelper(this);

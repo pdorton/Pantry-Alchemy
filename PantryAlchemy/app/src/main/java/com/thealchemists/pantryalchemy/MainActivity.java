@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     // Grabs profile and switches activity upon successful login
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        AccessToken accessToken = loginResult.getAccessToken();
+                        //AccessToken accessToken = loginResult.getAccessToken();
                         Profile profile = Profile.getCurrentProfile();
                         launchActivity(profile);
                     }
@@ -59,22 +59,21 @@ public class MainActivity extends AppCompatActivity {
 
     // When reopening the app and still logged in
     // bypasses login page to given activity
-    @Override
-    protected void onResume(){
-        super.onResume();
-        Profile profile = Profile.getCurrentProfile();
-        launchActivity(profile);
-    }
+//    @Override
+//    protected void onResume(){
+//        super.onResume();
+//        Profile profile = Profile.getCurrentProfile();
+//        launchActivity(profile);
+//    }
 
 
     // Checks if user is logged in
     // Launches next Activity to be displayed
     // TODO: Set method to take in type int and pass to Intent array
     private void launchActivity(Profile profile){
-        if (profile != null) {
-            Intent recipeIntent = new Intent(MainActivity.this, Tab3Recipes.class);
-            startActivity(recipeIntent);
-        }
+
+        Intent recipeIntent = new Intent(MainActivity.this, Tab3Recipes.class);
+        startActivity(recipeIntent);
 
     }
 
