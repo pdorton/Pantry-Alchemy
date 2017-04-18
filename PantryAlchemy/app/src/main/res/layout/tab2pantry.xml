@@ -54,7 +54,7 @@
         android:layout_alignStart="@+id/pantryLabel"
         android:layout_marginBottom="12dp"
         android:clickable="true"
-        app:backgroundTint="@android:color/transparent"
+        app:backgroundTint="?android:attr/colorPrimaryDark"
         app:fabSize="mini"
         app:srcCompat="@android:drawable/ic_input_add"
 
@@ -65,19 +65,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/pantryAddIngredientButton"
-        android:layout_marginBottom="85dp"
-        android:visibility="invisible"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="84dp"
+        android:background="@color/search_layover_bg"
+        android:backgroundTint="@color/search_layover_bg"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/pantryIngredientDisplay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/pantryRecipesButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp"
-        android:text="Temp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

@@ -58,7 +58,8 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
 
         //get ingredients
         ArrayList<String> ingredientList = myDbHelper.getIngredientList();
-        for(int i =0;i <ingredientList.size()-1;i++){
+        for(int i =0;i <ingredientList.size()-1;i++)
+        {
             Log.i("List", ingredientList.get(i));
         }
 
@@ -137,7 +138,8 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
     }
 
 
-    public void copyDatabase(){
+    public void copyDatabase()
+    {
 
         File database = getApplicationContext().getDatabasePath(DataBaseHelper.DB_NAME);
         if(false == database.exists())
