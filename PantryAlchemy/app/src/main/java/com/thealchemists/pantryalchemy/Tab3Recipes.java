@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class Tab3Recipes extends Activity
 {
@@ -40,6 +42,16 @@ public class Tab3Recipes extends Activity
             {//TODO:BACKEND:PUT IN CODE TO PASS DATA FROM RECIPE TO PANTRY TO LATER BE PASSED TO THE LIST FOR COMPARISON
                 Intent moveFromRecipeToPantry = new Intent(Tab3Recipes.this,Tab2Pantry.class);
                 startActivity(moveFromRecipeToPantry);
+            }
+        });
+
+        ImageButton image1 = (ImageButton) findViewById(R.id.imageButton);
+
+        image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewChicken = new Intent(Tab3Recipes.this, GrilledChickenAndSalad.class);
+                startActivity(viewChicken);
             }
         });
 

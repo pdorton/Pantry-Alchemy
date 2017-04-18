@@ -22,14 +22,21 @@
         <activity
             android:name=".Tab2Pantry"
             android:exported="true">
-
-
         </activity>
 
         <activity
             android:name=".Tab1List"
             android:exported="true">
+        </activity>
 
+        <activity
+            android:name=".Tab3Recipes"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".GrilledChickenAndSalad"
+            android:exported="true">
         </activity>
 
     </application>
