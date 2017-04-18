@@ -26,6 +26,7 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+
         System.out.println("DEBUG: created the instance of pantry");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab2pantry);
