@@ -66,11 +66,12 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         //debug
         //Log.i("checking", "all ingredients there if there are " +ingredientList.size() );
 
+        final Button addToListButton = (Button) findViewById(R.id.addIngredientToSpinnerButton);
 
         FloatingActionButton addToPantry = (FloatingActionButton) findViewById(R.id.pantryAddIngredientButton);
         final Spinner pantryIngredientListSpinner = (Spinner) findViewById(R.id.ingredientAdderSpinner);
         //TODO:DATABASE: NEED TO PUT CODE HERE TO INSERT ALL THE INGREDIENTS FROM THE SQL CALL
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ingredientList);
+        final ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ingredientList);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         pantryIngredientListSpinner.setAdapter(dataAdapter);
         TextView pantryListDisplay = (TextView)findViewById(R.id.pantryIngredientDisplay);
@@ -81,7 +82,27 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
             public void onClick(View v)
             {
                 pantryIngredientListSpinner.setVisibility(View.VISIBLE);
+                addToListButton.setVisibility(View.VISIBLE);
+            }
+        });
 
+        final TextView addIngredientToList = (TextView) findViewById(R.id.itemToAddToListText);
+
+        addToListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                addIngredientToList.setVisibility(View.VISIBLE);
+            }
+        });
+
+        addIngredientToList.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus)
+            {
+                String ingredientToAdd = (String)addIngredientToList.getText();
+                dataAdapter.add(ingredientToAdd);
+                
             }
         });
 

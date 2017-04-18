@@ -55,6 +55,5 @@ public class Tab3Recipes extends Activity
             }
         });
 
-
     }
 }
