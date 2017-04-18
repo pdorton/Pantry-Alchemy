@@ -3,10 +3,7 @@ package com.thealchemists.pantryalchemy;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 public class Tab3Recipes extends Activity
@@ -18,7 +15,7 @@ public class Tab3Recipes extends Activity
         setContentView(R.layout.tab3recipes);
 
 
-        Button recipesListButton = (Button) findViewById(R.id.recipiesListButton);
+        Button recipesListButton = (Button) findViewById(R.id.recipesListButton);
         Button recipesPantryButton = (Button) findViewById(R.id.recipesPantryButton);
 
         recipesListButton.setOnClickListener(new View.OnClickListener()
