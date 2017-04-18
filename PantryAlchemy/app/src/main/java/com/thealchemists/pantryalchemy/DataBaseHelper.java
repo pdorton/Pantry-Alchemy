@@ -215,5 +215,62 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         return thisRecipe;
     }
 
+    // Returns a list of recipes that have all ingredients in the pantry
+    protected ArrayList<Recipe> getMakeableRecipes(){
+        ArrayList<Ingredient> pantry = getPantry();
+        // TODO: either add items to favorites or hardcode a list of recipes here
+        ArrayList<Recipe> availableRecipes = getFavorites();
+        ArrayList<Recipe> makeableRecipes = new ArrayList<>();
+        ArrayList<Ingredient> recipeIngredients = new ArrayList<>();
+        int foundIngredients;
+
+        // iterate through all the recipes we want to consider
+        for(int i = 0; i < availableRecipes.size(); i++){
+            // Iterate through all of the ingredients in a recipe
+            recipeIngredients = getRecipesIngredients(availableRecipes.get(i));
+            for(int j = 0; j < recipeIngredients.size(); j++){
+                // Count the number of ingredients that are found in the pantry
+                foundIngredients = 0;
+                for(int k = 0; k < pantry.size(); k++){
+                    if(recipeIngredients.get(j).equals(pantry.get(k)){
+                        foundIngredients++;
+                    }
+                }
+                // If all of a recipes ingredients were found in the pantry, it's makeable
+                if(foundIngredients = recipeIngredients.size())
+                    makeableRecipes.add(availableRecipes.get(i));
+            }
+        }
+
+        return makeableRecipes;
+    }
+
+    // Return a list of recipes that have at least one ingredient in common with the pantry
+    protected ArrayList<Recipe> getAlmostMakeableRecipes(){
+        ArrayList<Ingredient> pantry = getPantry();
+        ArrayList<Recipe> availableRecipes = getFavorites();
+        ArrayList<Recipe> almostMakeableRecipes = new ArrayList<>();
+        ArrayList<Ingredient> recipeIngredients = new ArrayList<>();
+        int foundIngredients;
+
+        // iterate through all the recipes we want to consider
+        for(int i = 0; i < availableRecipes.size(); i++){
+            // Iterate through all of the ingredients in a recipe
+            recipeIngredients = getRecipesIngredients(availableRecipes.get(i));
+            for(int j = 0; j < recipeIngredients.size(); j++){
+                // Compare the recipe ingredients to the pantry
+                foundIngredients = 0;
+                for(int k = 0; k < pantry.size(); k++){
+                    // If any ingredients are in the pantry, its almost makeable
+                    if(recipeIngredients.get(j).equals(pantry.get(k)){
+                        almostMakeableRecipes.add(availableRecipes.get(i));
+                    }
+                }
+            }
+        }
+
+        return almostMakeableRecipes;
+    }
+
 
 }

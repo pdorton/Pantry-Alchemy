@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Recipe {
     // Data members
+    private int recipeID;
     private String recipe_name;
     private String directions;
     private byte[] photo;
@@ -13,7 +14,8 @@ public class Recipe {
     private ArrayList<Ingredient> ingredients;
 
     // Constructor
-    public Recipe(String recipe_name, String directions, byte[] photo, ArrayList<Ingredient> ingredients) {
+    public Recipe(int recipeID, String recipe_name, String directions, byte[] photo, ArrayList<Ingredient> ingredients) {
+        this.recipeID = recipeID;
         this.recipe_name = recipe_name;
         this.directions = directions;
         this.photo = photo;
@@ -22,6 +24,7 @@ public class Recipe {
     }
 
     // Methods
+    public int getRecipeID(){ return this.recipeID; }
     public String getRecipe_name() { return this.recipe_name; }
     public String getDirections() { return this.directions; }
     public byte[] getPhoto() { return this.photo; }
