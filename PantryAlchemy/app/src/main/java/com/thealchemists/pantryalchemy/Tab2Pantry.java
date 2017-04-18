@@ -129,7 +129,16 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
             }
         });
 
+        Button pantryRecipeButton = (Button) findViewById(R.id.pantryRecipesButton);
 
+        pantryRecipeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent recipeIntent = new Intent(Tab2Pantry.this,Tab3Recipes.class);
+                startActivity(recipeIntent);
+            }
+        });
 
 
 
