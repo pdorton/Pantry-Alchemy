@@ -83,28 +83,31 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
             {
                 pantryIngredientListSpinner.setVisibility(View.VISIBLE);
                 addToListButton.setVisibility(View.VISIBLE);
+                final TextView addIngredientToList = (TextView) findViewById(R.id.itemToAddToListText);
+
+                addToListButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+
+                        addIngredientToList.setVisibility(View.VISIBLE);
+                    }
+                });
+
+                addIngredientToList.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                    @Override
+                    public void onFocusChange(View v, boolean hasFocus)
+                    {
+
+                        String ingredientToAdd = (String)addIngredientToList.getText();
+                        dataAdapter.add(ingredientToAdd);
+
+                    }
+                });
             }
         });
 
-        final TextView addIngredientToList = (TextView) findViewById(R.id.itemToAddToListText);
 
-        addToListButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                addIngredientToList.setVisibility(View.VISIBLE);
-            }
-        });
-
-        addIngredientToList.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus)
-            {
-                String ingredientToAdd = (String)addIngredientToList.getText();
-                dataAdapter.add(ingredientToAdd);
-                
-            }
-        });
 
         pantryIngredientListSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
