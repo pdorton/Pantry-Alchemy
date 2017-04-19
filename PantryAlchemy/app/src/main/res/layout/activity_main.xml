@@ -8,34 +8,57 @@
     android:fitsSystemWindows="true"
     tools:context="com.thealchemists.pantryalchemy.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="497dp"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay"></android.support.v7.widget.Toolbar>
+        <ImageView
+            android:id="@+id/loginPageIcon"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:srcCompat="@drawable/panalch"
+            android:layout_marginBottom="37dp"
+            android:layout_above="@+id/fb_login_bn"
+            android:layout_alignLeft="@+id/loginPageName"
+            android:layout_alignStart="@+id/loginPageName" />
 
-        <Button
-            android:id="@+id/mainPantryButton"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/loginPageSlogan"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Licking Doorknobs is Illegal on Other Planets"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_above="@+id/fb_login_bn"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="61dp"
+            android:layout_marginEnd="61dp"
+            android:layout_marginBottom="12dp" />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/fb_login_bn"
+            android:layout_width="wrap_content"
+            android:layout_height="274dp"
             android:layout_weight="1"
-            android:text="Login With Facebook" />
+            android:layout_marginBottom="182dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"></com.facebook.login.widget.LoginButton>
 
-        <com.miguelcatalan.materialsearchview.MaterialSearchView
-            android:id="@+id/search_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
+        <TextView
+            android:id="@+id/loginPageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/loginPageIcon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="22dp"
+            android:contentDescription="App Name for Login Page"
+            android:text="Pantry Alchemy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            tools:text="Pantry Alchemy" />
 
-    </android.support.design.widget.AppBarLayout>
+    </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
