@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.io.File;
 import android.widget.AdapterView;
@@ -15,7 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 
-
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedListener
@@ -34,10 +35,18 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
         setContentView(R.layout.tab2pantry);
 
 
-        // Buttons
+        /* Buttons and Fields */
 
+        // Adds to Pantry
+        Button addPantry = (Button)findViewById(R.id.pantryAddIngredientButtonPantry);
+        final EditText typeIngredientPantry = (EditText) findViewById(R.id.pantryInsertIngredientPantry);
+        final TextView displayIngredientsPantry = (TextView) findViewById(R.id.pantryIngredientDisplayPantry);
+
+        // Tab Buttons
         Button pantryRecipesButton = (Button) findViewById(R.id.pantryRecipesButton);
         Button pantryListButton = (Button) findViewById(R.id.pantryListButton);
+
+
         pantryRecipesButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -58,9 +67,19 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
             }
         });
 
+        addPantry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                displayIngredientsPantry.setText(typeIngredientPantry.getText());
+                typeIngredientPantry.setText(null);
+            }
+        });
+
         //initialize database
         myDbHelper = new DataBaseHelper(this);
         copyDatabase();
+
+
 
         //debug
         //Log.i("get List", "Getting list");
@@ -119,6 +138,27 @@ public class Tab2Pantry extends Activity implements AdapterView.OnItemSelectedLi
 
 
 
+
+    }
+
+    public void insertPantryItem(View v)
+    {
+        //EditText insertPantry = (EditText) findViewById(R.id.pantryInsertIngredientPantry);
+        //insertPantry.getText().toString();
+
+    }
+
+    public void insertFridge(View v)
+    {
+        EditText insertFridge = (EditText) findViewById(R.id.pantryInsertIngredientFridge);
+        insertFridge.getText().toString();
+
+    }
+
+    public void insertFreezerItem(View v)
+    {
+        EditText insertFreezer = (EditText) findViewById(R.id.pantryInsertIngredientFreezer);
+        insertFreezer.getText().toString();
 
     }
 
